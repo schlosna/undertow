@@ -96,6 +96,7 @@ public class URLUtils {
         buffer.setLength(0);
         boolean needToChange = false;
         int numChars = s.length();
+        buffer.ensureCapacity(numChars); // estimate resulting URL length
         int i = 0;
 
         while (i < numChars) {
