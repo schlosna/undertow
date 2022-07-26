@@ -104,6 +104,14 @@ public class QValueParser {
                 }
             }
         }
+
+        // no need to sort unless we have multiple qvalues
+        if (found.isEmpty()) {
+            return Collections.emptyList();
+        } else if (found.size() == 1) {
+            return Collections.singletonList(Collections.singletonList(found.get(0)));
+        }
+
         Collections.sort(found, Collections.reverseOrder());
         String currentQValue = null;
         List<List<QValueResult>> values = new ArrayList<>();
